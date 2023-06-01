@@ -54,6 +54,9 @@ int num_length(unsigned int n)
 {
 	int length = 0;
 
+	if (n == 0)
+		return (1);
+
 	while (n > 0)
 	{
 		n /= 10;
