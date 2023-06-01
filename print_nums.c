@@ -64,3 +64,21 @@ int num_length(unsigned int n)
 	}
 	return (length);
 }
+
+/**
+ * print_unsigned - prints an unsigned integer
+ * @list: unsigned integer to print
+ *
+ * Description: prints an unsigned integer
+ *
+ * Return: number of characters printed
+ */
+int print_unsigned(va_list list)
+{
+	unsigned int n = va_arg(list, unsigned int);
+	int count = 0;
+
+	count += num_length(n);
+	print_number(n);
+	return (count);
+}

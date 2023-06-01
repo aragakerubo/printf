@@ -19,6 +19,10 @@ int (*get_format(const char *format))(va_list)
 	    {"d", print_integer},
 	    {"i", print_integer},
 	    {"b", print_binary},
+	    {"u", print_unsigned},
+	    {"o", print_octal},
+	    {"x", print_hex},
+	    {"X", print_HEX},
 	    {NULL, NULL}};
 
 	while (p[i].c)

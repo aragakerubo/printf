@@ -30,6 +30,15 @@ int num_length(unsigned int n);
 int print_binary(va_list args);
 int binary_num_length(unsigned int n);
 void print_binary_recursion(unsigned int n);
+int print_unsigned(va_list args);
+int print_octal(va_list args);
+int octal_num_length(unsigned int n);
+void print_octal_recursion(unsigned int n);
+int print_hex(va_list args);
+int hex_num_length(unsigned int n);
+void print_hex_recursion(unsigned int n);
+int print_HEX(va_list args);
+void print_HEX_recursion(unsigned int n);
 
 #endif /* MAIN_H */
 
