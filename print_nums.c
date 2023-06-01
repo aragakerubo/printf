@@ -41,3 +41,22 @@ int print_number(int n)
 	_putchar((num % 10) + '0');
 	return (num_length(num));
 }
+/**
+ * num_length - calculates the length of a number
+ * @n: number to calculate
+ *
+ * Description: calculates the length of a number
+ *
+ * Return: length of the number
+ */
+int num_length(unsigned int n)
+{
+	int length = 0;
+
+	while (n > 0)
+	{
+		n /= 10;
+		length++;
+	}
+	return (length);
+}
