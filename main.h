@@ -27,6 +27,8 @@ int print_percent(va_list args);
 int print_integer(va_list args);
 int print_number(int n);
 int num_length(unsigned int n);
+int print_binary(va_list args);
+void print_binary_recursion(unsigned int n);
 
 #endif /* MAIN_H */
 
