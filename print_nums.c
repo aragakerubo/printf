@@ -41,6 +41,7 @@ int print_number(int n)
 	_putchar((num % 10) + '0');
 	return (num_length(num));
 }
+
 /**
  * num_length - calculates the length of a number
  * @n: number to calculate
