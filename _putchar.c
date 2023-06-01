@@ -12,13 +12,13 @@ int _putchar(char c)
 	static char buf[1024];
 	static int i;
 
-	if (c == '\n' || i == 1024)
+	if (c == -1 || i == 1024)
 	{
 		write(1, buf, i);
 		i = 0;
 	}
 
-	if (c != '\n')
+	if (c != -1)
 	{
 		buf[i] = c;
 		i++;
