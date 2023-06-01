@@ -20,8 +20,7 @@ int _putchar(char c)
 
 	if (c != -1)
 	{
-		buffer[i] = c;
-		i++;
+		buffer[i++] = c;
 	}
 
 	return (1);
