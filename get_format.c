@@ -16,6 +16,8 @@ int (*get_format(const char *format))(va_list)
 	    {"c", print_char},
 	    {"s", print_string},
 	    {"%", print_percent},
+	    {"d", print_integer},
+	    {"i", print_integer},
 	    {NULL, NULL}};
 
 	while (p[i].c)
