@@ -22,6 +22,11 @@ int print_S(va_list list)
 			_putchar('\\');
 			_putchar('x');
 			count += 2;
+			if (str[i] < 16)
+			{
+				_putchar('0');
+				count++;
+			}
 			count += print_HEX_aux((unsigned char)str[i]);
 		}
 		else
