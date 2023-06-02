@@ -42,5 +42,6 @@ void print_HEX_recursion(unsigned int n);
 int print_S(va_list args);
 int print_HEX_aux(unsigned int n);
 int print_p(va_list args);
+int print_hex_aux(unsigned long int n);
 
 #endif /* MAIN_H */
