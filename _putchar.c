@@ -18,10 +18,5 @@ int _putchar(char c)
 		i = 0;
 	}
 
-	if (c != -1)
-	{
-		buffer[i++] = c;
-	}
-
 	return (1);
 }
