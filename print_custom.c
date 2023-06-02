@@ -60,3 +60,24 @@ int print_HEX_aux(unsigned int n)
 	count++;
 	return (count);
 }
+
+/**
+ * print_p - prints the address of a pointer
+ * @list: list of arguments
+ *
+ * Description: prints the address of a pointer
+ *
+ * Return: number of characters printed
+ */
+int print_p(va_list list)
+{
+	void *p = va_arg(list, void *);
+	unsigned long int address = (unsigned long int)p;
+	int count = 0;
+
+	_putchar('0');
+	_putchar('x');
+	count += 2;
+	count += print_HEX_aux(address);
+	return (count);
+}

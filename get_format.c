@@ -24,6 +24,7 @@ int (*get_format(const char *format))(va_list)
 	    {"x", print_hex},
 	    {"X", print_HEX},
 	    {"S", print_S},
+	    {"p", print_p},
 	    {NULL, NULL}};
 
 	while (p[i].c)
