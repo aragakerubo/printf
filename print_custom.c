@@ -17,7 +17,7 @@ int print_S(va_list list)
 		str = "(null)";
 	while (str[i])
 	{
-		if (str[i] < 32 || str[i] >= 127)
+		if (str[i] > 0 && (str[i] < 32 || str[i] >= 127))
 		{
 			_putchar('\\');
 			_putchar('x');
