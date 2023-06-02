@@ -17,14 +17,12 @@ int print_S(va_list list)
 		str = "(null)";
 	while (str[i])
 	{
-		if (str[i] > 0 && (str[i] < 32 || str[i] >= 127))
+		if (str[i] < 32 || str[i] >= 127)
 		{
 			_putchar('\\');
 			_putchar('x');
-			if (str[i] < 16)
-				_putchar('0');
-			count += 3;
-			count += print_HEX_aux((unsigned int)str[i]);
+			count += 2;
+			count += print_HEX_aux((unsigned char)str[i]);
 		}
 		else
 		{
