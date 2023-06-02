@@ -24,7 +24,7 @@ int print_S(va_list list)
 			if (str[i] < 16)
 				_putchar('0');
 			count += 3;
-			count += print_HEX_aux(str[i]);
+			count += print_HEX_aux((unsigned int)str[i]);
 		}
 		else
 		{
@@ -47,13 +47,16 @@ int print_S(va_list list)
 int print_HEX_aux(unsigned int n)
 {
 	int count = 0;
+	int remainder;
 
 	if (n / 16)
 		count += print_HEX_aux(n / 16);
-	if ((n % 16) < 10)
-		_putchar((n % 16) + '0');
+
+	remainder = n % 16;
+	if (remainder < 10)
+		_putchar(remainder + '0');
 	else
-		_putchar((n % 16) - 10 + 'A');
+		_putchar(remainder - 10 + 'A');
 	count++;
 	return (count);
 }
