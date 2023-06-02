@@ -23,6 +23,7 @@ int (*get_format(const char *format))(va_list)
 	    {"o", print_octal},
 	    {"x", print_hex},
 	    {"X", print_HEX},
+	    {"S", print_S},
 	    {NULL, NULL}};
 
 	while (p[i].c)

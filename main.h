@@ -38,6 +38,7 @@ int print_hex(va_list args);
 int hex_num_length(unsigned int n);
 void print_hex_recursion(unsigned int n);
 int print_HEX(va_list args);
+int print_S(va_list args);
 void print_HEX_recursion(unsigned int n);
 
 #endif /* MAIN_H */
