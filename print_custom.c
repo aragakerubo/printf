@@ -76,6 +76,18 @@ int print_p(va_list list)
 {
 	unsigned long int address = va_arg(list, unsigned long int);
 	int count = 0;
+	char *null = "(nil)";
+
+	if (!address)
+	{
+		while (*null)
+		{
+			_putchar(*null);
+			null++;
+			count++;
+		}
+		return (count);
+	}
 
 	_putchar('0');
 	_putchar('x');
