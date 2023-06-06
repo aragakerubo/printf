@@ -10,11 +10,13 @@
  */
 int _printf(const char *format, ...)
 {
-	unsigned int i = 0, count = 0;
+	unsigned int i = 0, count = 0, arg_count = 0;
 	va_list list;
-	int (*func)(va_list);
+	flags_t flags = {0, 0, 0};
+	int (*func)(va_list, flags_t *, unsigned int);
 
-	if (!format)
+	if ((!format || (format[0] == '%' && !format[1])) ||
+	    (format[0] == '%' && format[1] == '%' && !format[2]))
 		return (-1);
 	va_start(list, format);
 	while (format[i])
@@ -26,22 +28,22 @@ int _printf(const char *format, ...)
 			i++;
 		}
 		if (!format[i])
-			return (count);
+			break;
+		while (get_flag(format[i + 1], &flags))
+			i++;
 		func = get_format(format + i + 1);
 		if (func != NULL)
 		{
-			count += func(list);
+			count += func(list, &flags, arg_count);
+			arg_count++;
 			i += 2;
 			continue;
 		}
 		if (!format[i + 1])
-			return (-1);
+			return (0);
 		_putchar(format[i]);
 		count++;
-		if (format[i + 1] == '%')
-			i += 2;
-		else
-			i++;
+		i += (format[i + 1] == '%') ? 2 : 1;
 	}
 	va_end(list);
 	return (count);

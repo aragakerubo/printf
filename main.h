@@ -8,6 +8,19 @@
 #include <limits.h>
 
 /**
+ * struct flags - struct
+ * @plus_flag: plus flag
+ * @space_flag: space flag
+ * @hash_flag: hash flag
+ */
+typedef struct flags
+{
+	int plus_flag;
+	int space_flag;
+	int hash_flag;
+} flags_t;
+
+/**
  * struct print - struct
  * @c: char
  * @f: function
@@ -15,33 +28,34 @@
 typedef struct print
 {
 	char *c;
-	int (*f)(va_list);
+	int (*f)(va_list, flags_t *, unsigned int);
 } print_t;
 
 int _printf(const char *format, ...);
 int _putchar(char c);
-int (*get_format(const char *format))(va_list);
-int print_char(va_list args);
-int print_string(va_list args);
-int print_percent(va_list args);
-int print_integer(va_list args);
+int (*get_format(const char *format))(va_list, flags_t *, unsigned int);
+int print_char(va_list args, flags_t *flags, unsigned int arg_count);
+int print_string(va_list args, flags_t *flags, unsigned int arg_count);
+int print_percent(va_list args, flags_t *flags, unsigned int arg_count);
+int print_integer(va_list args, flags_t *flags, unsigned int arg_count);
 int print_number(int n);
 int num_length(unsigned int n);
-int print_binary(va_list args);
+int print_binary(va_list args, flags_t *flags, unsigned int arg_count);
 int binary_num_length(unsigned int n);
 void print_binary_recursion(unsigned int n);
-int print_unsigned(va_list args);
-int print_octal(va_list args);
+int print_unsigned(va_list args, flags_t *flags, unsigned int arg_count);
+int print_octal(va_list args, flags_t *flags, unsigned int arg_count);
 int octal_num_length(unsigned int n);
 void print_octal_recursion(unsigned int n);
-int print_hex(va_list args);
+int print_hex(va_list args, flags_t *flags, unsigned int arg_count);
 int hex_num_length(unsigned int n);
 void print_hex_recursion(unsigned int n);
-int print_HEX(va_list args);
+int print_HEX(va_list args, flags_t *flags, unsigned int arg_count);
 void print_HEX_recursion(unsigned int n);
-int print_S(va_list args);
+int print_S(va_list args, flags_t *flags, unsigned int arg_count);
 int print_HEX_aux(unsigned int n);
-int print_p(va_list args);
+int print_p(va_list args, flags_t *flags, unsigned int arg_count);
 int print_hex_aux(unsigned long int n);
+int get_flag(char c, flags_t *flags);
 
 #endif /* MAIN_H */

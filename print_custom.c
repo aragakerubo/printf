@@ -3,12 +3,17 @@
 /**
  * print_S - prints the string.
  * @list: list of arguments
+ * @flags: flags
+ * @arg_count: number of arguments
  *
  * Description: prints the string.
  *
  * Return: number of characters printed
  */
-int print_S(va_list list)
+int print_S(
+	va_list list,
+	__attribute__((unused)) flags_t *flags,
+	__attribute__((unused)) unsigned int arg_count)
 {
 	char *str = va_arg(list, char *);
 	int i = 0, count = 0;
@@ -17,17 +22,17 @@ int print_S(va_list list)
 		str = "(null)";
 	while (str[i])
 	{
-		if (str[i] < 32 || str[i] >= 127)
+		if (str[i] > 0 && (str[i] < 32 || str[i] >= 127))
 		{
 			_putchar('\\');
 			_putchar('x');
-			count += 2;
 			if (str[i] < 16)
 			{
 				_putchar('0');
 				count++;
 			}
-			count += print_HEX_aux((unsigned char)str[i]);
+			count += 2;
+			count += print_HEX_aux((unsigned int)str[i]);
 		}
 		else
 		{
@@ -67,12 +72,17 @@ int print_HEX_aux(unsigned int n)
 /**
  * print_p - prints the address of a pointer
  * @list: list of arguments
+ * @flags: flags
+ * @arg_count: number of arguments
  *
  * Description: prints the address of a pointer
  *
  * Return: number of characters printed
  */
-int print_p(va_list list)
+int print_p(
+	va_list list,
+	__attribute__((unused)) flags_t *flags,
+	__attribute__((unused)) unsigned int arg_count)
 {
 	unsigned long int address = va_arg(list, unsigned long int);
 	int count = 0;

@@ -3,12 +3,17 @@
 /**
  * print_char - prints a character
  * @list: character to print
+ * @flags: flags
+ * @arg_count: number of arguments
  *
  * Description: prints a character
  *
  * Return: number of characters printed
  */
-int print_char(va_list list)
+int print_char(
+	va_list list,
+	__attribute__((unused)) flags_t *flags,
+	__attribute__((unused)) unsigned int arg_count)
 {
 	_putchar(va_arg(list, int));
 	return (1);
@@ -17,12 +22,17 @@ int print_char(va_list list)
 /**
  * print_string - prints a string
  * @list: string to print
+ * @flags: flags
+ * @arg_count: number of arguments
  *
  * Description: prints a string
  *
  * Return: number of characters printed
  */
-int print_string(va_list list)
+int print_string(
+	va_list list,
+	__attribute__((unused)) flags_t *flags,
+	__attribute__((unused)) unsigned int arg_count)
 {
 	int i = 0;
 	char *str = va_arg(list, char *);
@@ -37,12 +47,17 @@ int print_string(va_list list)
 /**
  * print_percent - prints a percent
  * @list: percent (do nothing)
+ * @flags: flags
+ * @arg_count: number of arguments
  *
  * Description: prints a percent
  *
  * Return: number of characters printed
  */
-int print_percent(__attribute__((unused)) va_list list)
+int print_percent(
+	__attribute__((unused)) va_list list,
+	__attribute__((unused)) flags_t *flags,
+	__attribute__((unused)) unsigned int arg_count)
 {
 	_putchar('%');
 	return (1);

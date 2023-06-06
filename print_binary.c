@@ -3,12 +3,17 @@
 /**
  * print_binary - prints a binary number
  * @list: binary number to print
+ * @flags: flags
+ * @arg_count: number of arguments
  *
  * Description: prints a binary number
  *
  * Return: number of characters printed
  */
-int print_binary(va_list list)
+int print_binary(
+	va_list list,
+	__attribute__((unused)) flags_t *flags,
+	__attribute__((unused)) unsigned int arg_count)
 {
 	unsigned int n = va_arg(list, unsigned int);
 	int count = 0;
