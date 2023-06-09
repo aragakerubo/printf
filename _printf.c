@@ -15,7 +15,11 @@ int _printf(const char *format, ...)
 	flags_t flags = {0, 0, 0};
 	int (*func)(va_list, flags_t *);
 
-	if ((!format || (format[0] == '%' && !format[1])) ||
+	if (!format)
+		return (-1);
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
+		return (-1);
+	if ((format[0] == '%' && !format[1]) ||
 	    (format[0] == '%' && format[1] == '%' && !format[2]))
 		return (-1);
 	va_start(list, format);
@@ -39,7 +43,7 @@ int _printf(const char *format, ...)
 			continue;
 		}
 		if (!format[i + 1])
-			return (0);
+			return (-1);
 		_putchar(format[i]);
 		count++;
 		i += (format[i + 1] == '%') ? 2 : 1;
