@@ -9,7 +9,7 @@
  * Return: pointer to the function that corresponds
  * to the format given as a parameter
  */
-int (*get_format(const char *format))(va_list, flags_t *, unsigned int)
+int (*get_format(const char *format))(va_list, flags_t *)
 {
 	unsigned int i = 0;
 	print_t p[] = {

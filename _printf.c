@@ -10,10 +10,10 @@
  */
 int _printf(const char *format, ...)
 {
-	unsigned int i = 0, count = 0, arg_count = 0;
+	unsigned int i = 0, count = 0;
 	va_list list;
 	flags_t flags = {0, 0, 0};
-	int (*func)(va_list, flags_t *, unsigned int);
+	int (*func)(va_list, flags_t *);
 
 	if ((!format || (format[0] == '%' && !format[1])) ||
 	    (format[0] == '%' && format[1] == '%' && !format[2]))
@@ -34,8 +34,7 @@ int _printf(const char *format, ...)
 		func = get_format(format + i + 1);
 		if (func != NULL)
 		{
-			count += func(list, &flags, arg_count);
-			arg_count++;
+			count += func(list, &flags);
 			i += 2;
 			continue;
 		}

@@ -4,22 +4,16 @@
  * print_integer - prints an integer
  * @list: integer to print
  * @flags: flags
- * @arg_count: number of arguments
  *
  * Description: prints an integer
  *
  * Return: number of characters printed
  */
-int print_integer(va_list list, flags_t *flags, unsigned int arg_count)
+int print_integer(va_list list, flags_t *flags)
 {
-	int *arg = malloc(sizeof(int) * (arg_count + 1));
-	unsigned int i;
-	int count = 0, n;
+	int count = 0;
+	int n = va_arg(list, int);
 
-	for (i = 0; i < (arg_count + 1); i++)
-		arg[i] = va_arg(list, int);
-
-	n = arg[arg_count];
 	if (flags->space_flag == 1 && flags->plus_flag == 0 && n >= 0)
 		count += _putchar(' ');
 
@@ -82,7 +76,6 @@ int num_length(unsigned int n)
  * print_unsigned - prints an unsigned integer
  * @list: unsigned integer to print
  * @flags: flags
- * @arg_count: number of arguments
  *
  * Description: prints an unsigned integer
  *
@@ -90,8 +83,7 @@ int num_length(unsigned int n)
  */
 int print_unsigned(
 	va_list list,
-	__attribute__((unused)) flags_t *flags,
-	__attribute__((unused)) unsigned int arg_count)
+	__attribute__((unused)) flags_t *flags)
 {
 	unsigned int n = va_arg(list, unsigned int);
 	int count = 0;

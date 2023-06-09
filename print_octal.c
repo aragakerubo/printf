@@ -4,7 +4,6 @@
  * print_octal - prints an octal
  * @list: octal to print
  * @flags: flags
- * @arg_count: number of arguments
  *
  * Description: prints an octal
  *
@@ -12,17 +11,10 @@
  */
 int print_octal(
 	va_list list,
-	flags_t *flags,
-	unsigned int arg_count)
+	flags_t *flags)
 {
-	unsigned int *arg = malloc(sizeof(unsigned int) * (arg_count + 1));
-	unsigned int n, i;
+	unsigned int n = va_arg(list, unsigned int);
 	int count = 0;
-
-	for (i = 0; i < (arg_count + 1); i++)
-		arg[i] = va_arg(list, unsigned int);
-
-	n = arg[arg_count];
 
 	if (flags->hash_flag == 1 && n != 0)
 	{

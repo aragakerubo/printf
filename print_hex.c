@@ -4,7 +4,6 @@
  * print_hex - prints a hexadecimal
  * @list: hexadecimal to print
  * @flags: flags
- * @arg_count: number of arguments
  *
  * Description: prints a hexadecimal
  *
@@ -12,17 +11,10 @@
  */
 int print_hex(
 	va_list list,
-	flags_t *flags,
-	unsigned int arg_count)
+	flags_t *flags)
 {
-	unsigned int *arg = malloc(sizeof(unsigned int) * (arg_count + 1));
-	unsigned int n, i;
+	unsigned int n = va_arg(list, unsigned int);
 	int count = 0;
-
-	for (i = 0; i < (arg_count + 1); i++)
-		arg[i] = va_arg(list, unsigned int);
-
-	n = arg[arg_count];
 
 	if (flags->hash_flag == 1 && n != 0)
 	{
@@ -81,7 +73,6 @@ void print_hex_recursion(unsigned int n)
  * print_HEX - prints a hexadecimal
  * @list: hexadecimal to print
  * @flags: flags
- * @arg_count: number of arguments
  *
  * Description: prints a hexadecimal
  *
@@ -89,17 +80,10 @@ void print_hex_recursion(unsigned int n)
  */
 int print_HEX(
 	va_list list,
-	flags_t *flags,
-	unsigned int arg_count)
+	flags_t *flags)
 {
-	unsigned int *arg = malloc(sizeof(unsigned int) * (arg_count + 1));
-	unsigned int n, i;
+	unsigned int n = va_arg(list, unsigned int);
 	int count = 0;
-
-	for (i = 0; i < (arg_count + 1); i++)
-		arg[i] = va_arg(list, unsigned int);
-
-	n = arg[arg_count];
 
 	if (flags->hash_flag == 1 && n != 0)
 	{

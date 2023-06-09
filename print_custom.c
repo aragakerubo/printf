@@ -4,7 +4,6 @@
  * print_S - prints the string.
  * @list: list of arguments
  * @flags: flags
- * @arg_count: number of arguments
  *
  * Description: prints the string.
  *
@@ -12,8 +11,7 @@
  */
 int print_S(
 	va_list list,
-	__attribute__((unused)) flags_t *flags,
-	__attribute__((unused)) unsigned int arg_count)
+	__attribute__((unused)) flags_t *flags)
 {
 	char *str = va_arg(list, char *);
 	int i = 0, count = 0;
@@ -73,7 +71,6 @@ int print_HEX_aux(unsigned int n)
  * print_p - prints the address of a pointer
  * @list: list of arguments
  * @flags: flags
- * @arg_count: number of arguments
  *
  * Description: prints the address of a pointer
  *
@@ -81,8 +78,7 @@ int print_HEX_aux(unsigned int n)
  */
 int print_p(
 	va_list list,
-	__attribute__((unused)) flags_t *flags,
-	__attribute__((unused)) unsigned int arg_count)
+	__attribute__((unused)) flags_t *flags)
 {
 	unsigned long int address = va_arg(list, unsigned long int);
 	int count = 0;
